@@ -10,5 +10,5 @@ class Config:
     # (address used by Flask/SQLAlchemy to find the database)
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{os.path.join(BASE_DIR, 'tasks.db')}"
 
-    # Disables change tracking to save resource
+    # Disables change tracking to save resources
     SQLALCHEMY_TRACK_MODIFICATIONS = False
