@@ -12,3 +12,4 @@ class Config:
 
     # Disables change tracking to save resources
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    
