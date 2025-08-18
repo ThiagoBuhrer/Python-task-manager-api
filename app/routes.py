@@ -15,7 +15,7 @@ def hello():
 
 
 # POST (create new task)
-@main.route('tasks', methods=['POST'])
+@main.route('/tasks', methods=['POST'])
 def create_task():
 
     # Retrieves JSON data sent in the request body
@@ -51,7 +51,7 @@ def create_task():
 
 
 # GET (retrieve all tasks)
-@main.route('tasks', methods=['GET'])
+@main.route('/tasks', methods=['GET'])
 def get_tasks():
 
     # Retrieves all records from the Task table in the database
@@ -76,7 +76,7 @@ def get_tasks():
 
 
 # PUT (update an existing task)
-@main.route('tasks', methods=['PUT'])
+@main.route('/tasks/<int:id>', methods=['PUT'])
 def update_task(id):
 
     # Retrieves the task by its ID from the database
@@ -91,13 +91,16 @@ def update_task(id):
 
     # Checks if data is 'None' or an empty dictionary ({})
     if not data:
-        return jsonify({'error': 'Task not found.'}), 400
+        return jsonify({'error': 'Task not found. Please, insert a different task ID'}), 400
     
     task.title = data.get('title', task.title)
     task.description = data.get('description', task.description)
     task.status = data.get('status', task.status)
 
     db.session.commit()
+
+    # Returns a JSON response of sucessful update
+    return jsonify({'message': 'Task updated successfully'}), 200
 
 
 # DELETE (removes an existing task)
@@ -108,10 +111,10 @@ def delete_task(id):
     task = Task.query.get(id)
     
     if not task:
-        return jsonify({'error': 'Task not found. Please, insert a different task ID'}), 404
+        return jsonify({'error': 'Task not found. Please, insert a different task ID'}) , 404
     
     db.session.delete(task)
     db.session.commit()
 
     # Returns a JSON response with the updated list of tasks
-    return jsonify({'message': 'Tarefa deletada com sucesso'}), 200
+    return jsonify({'message': 'Task deleted successfully'}), 200
