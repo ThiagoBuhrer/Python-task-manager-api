@@ -113,7 +113,3 @@ def delete_task(id):
 
     # Returns a JSON response with the updated list of tasks
     return jsonify({'message': 'Task deleted successfully'}), 200
-
-
-
-
