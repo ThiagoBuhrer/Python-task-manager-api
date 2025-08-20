@@ -76,7 +76,7 @@ def get_tasks():
 # PUT (update an existing task)
 def update_task(id):
 
-     # Retrieves the task by its ID from database and validates its existence
+    # Retrieves the task by its ID from database and validates its existence
     task = Task.query.get(id)
     validation = validate_task_exists(task)
     if validation:
