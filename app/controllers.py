@@ -48,7 +48,6 @@ def create_task():
         }
     }), 201 # 201 status code indicates that a resource has been created successfully
 
-
 # GET (retrieve all tasks)
 def get_tasks():
 
@@ -71,7 +70,6 @@ def get_tasks():
     # Returns a JSON response with the list of tasks
     # Sets the correct Content-Type: application/json header automatically
     return jsonify(result), 200
-
 
 # PUT (update an existing task)
 def update_task(id):
