@@ -38,7 +38,7 @@ def create_task():
     # Returns a JSON response with the created task details
     # Sets the correct Content-Type: application/json header automatically
     return jsonify({
-        'message': 'Tarefa criada com sucesso',
+        'message': 'Task created successfully',
         'task': {
             'id': new_task.id,
             'title': new_task.title,
