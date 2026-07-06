@@ -9,3 +9,4 @@ with app.app_context():
     # Creates all database tables based on the defined models
     db.create_all()
     print("Database tables created successfully!")
+    
